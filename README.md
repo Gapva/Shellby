@@ -1,7 +1,7 @@
 <img src="https://github.com/Gapva/Shellby/assets/90116898/074726ac-191a-4956-8b64-5002b5e92606" width=512>
 
 # what
-Shellby is a sleek, modern and graphic-rich client that allows you to control and execute [Powershell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.4) cmdlets
+Shellby is a sleek, modern and graphic-rich client that allows you to control and execute [Powershell](https://github.com/PowerShell/PowerShell?tab=readme-ov-file#get-powershell) cmdlets
 
 # building
 prerequisites:
@@ -16,10 +16,12 @@ to import:
 - - if you scanned an entire directory for the archive, it will appear in your list of projects. you have to manually open it by double-clicking
 
 # progress
+- [x] functional support for linux
+- [x] functional support for mac
 - [ ] path configurator
 - [ ] default path selector
-- [ ] support for linux
-- [ ] support for mac
+- [ ] distributed support for linux
+- [ ] distributed support for mac
 
 # credits
 - all graphics and visual elements (besides the typefaces) were designed by me and created by hand
