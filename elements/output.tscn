@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3m6075nit1ga"]
+
+[ext_resource type="AudioStream" uid="uid://cu4p6i3gw6iin" path="res://assets/aud/newTemp.mp3" id="1_ayawx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_swe55"]
+
+[sub_resource type="Animation" id="Animation_sa2lk"]
+resource_name = "in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("container:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(-64, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("container:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iwooy"]
+_data = {
+"in": SubResource("Animation_sa2lk")
+}
+
+[node name="output" type="Control"]
+custom_minimum_size = Vector2(256, 48)
+layout_mode = 3
+anchors_preset = 0
+size_flags_vertical = 0
+
+[node name="container" type="VBoxContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+offset_left = -64.0
+offset_right = 960.0
+offset_bottom = 40.0
+
+[node name="cmd" type="Label" parent="container"]
+modulate = Color(0.705882, 0.611765, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+text = "> the command would go here"
+label_settings = SubResource("LabelSettings_swe55")
+
+[node name="out" type="Label" parent="container"]
+custom_minimum_size = Vector2(1024, 0)
+layout_mode = 2
+size_flags_vertical = 6
+text = "and out would come the output :3"
+label_settings = SubResource("LabelSettings_swe55")
+autowrap_mode = 3
+
+[node name="anims" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_iwooy")
+}
+speed_scale = 2.0
+
+[node name="add" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_ayawx")
+volume_db = 7.2

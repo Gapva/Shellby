@@ -1,0 +1,146 @@
+[gd_scene load_steps=10 format=3 uid="uid://dqubmnms8q440"]
+
+[ext_resource type="Script" path="res://elements/session.gd" id="1_kbaye"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oe6ag"]
+bg_color = Color(0.898039, 0.619608, 0.866667, 1)
+corner_radius_top_left = 24
+corner_radius_bottom_left = 24
+corner_detail = 12
+expand_margin_right = 2.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_m3uvy"]
+font_size = 24
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 0.0392157)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iowxv"]
+bg_color = Color(0.964706, 0.776471, 0.678431, 1)
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_detail = 1
+expand_margin_left = 2.0
+expand_margin_right = 8.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rbrud"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ggbb3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2vdys"]
+
+[sub_resource type="Animation" id="Animation_8stgx"]
+resource_name = "in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("elements:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("elements:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eu7t1"]
+_data = {
+"in": SubResource("Animation_8stgx")
+}
+
+[node name="session" type="Control"]
+custom_minimum_size = Vector2(256, 32)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 256.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_kbaye")
+
+[node name="elements" type="VBoxContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+offset_right = 1098.0
+offset_bottom = 132.0
+scale = Vector2(1e-05, 1e-05)
+
+[node name="path" type="HBoxContainer" parent="elements"]
+custom_minimum_size = Vector2(256, 24)
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="user" type="Panel" parent="elements/path"]
+custom_minimum_size = Vector2(80, 24)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_oe6ag")
+
+[node name="label" type="Label" parent="elements/path/user"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "user"
+label_settings = SubResource("LabelSettings_m3uvy")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+uppercase = true
+
+[node name="mode" type="Panel" parent="elements/path"]
+custom_minimum_size = Vector2(80, 24)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_iowxv")
+
+[node name="label" type="Label" parent="elements/path/mode"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "mthd"
+label_settings = SubResource("LabelSettings_m3uvy")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+uppercase = true
+
+[node name="kern" type="Control" parent="elements/path"]
+custom_minimum_size = Vector2(12, 24)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="prompt" type="LineEdit" parent="elements/path"]
+custom_minimum_size = Vector2(920, 24)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rbrud")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ggbb3")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_2vdys")
+flat = true
+
+[node name="anims" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_eu7t1")
+}
