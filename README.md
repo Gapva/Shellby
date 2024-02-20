@@ -7,6 +7,7 @@ Shellby is a sleek, modern and graphic-rich client that allows you to control an
 prerequisites:
 - a copy of [Godot 4.2.1](https://github.com/godotengine/godot/releases/download/4.2.1-stable/Godot_v4.2.1-stable_win64.exe.zip)
 - this repository, [as an archive](https://github.com/Gapva/Shellby/archive/refs/heads/main.zip)
+- although you don't need it to build the project, you require [Powershell](https://github.com/PowerShell/PowerShell?tab=readme-ov-file#get-powershell) to run the build
 
 to import:
 - launch Godot
